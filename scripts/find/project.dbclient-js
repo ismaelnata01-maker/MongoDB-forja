@@ -1,0 +1,7 @@
+db("aula").collection("personagens").find(
+    {},
+    {
+    nome: 1,
+    fruta: 0,
+    },
+);

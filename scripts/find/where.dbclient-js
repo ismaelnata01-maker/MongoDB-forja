@@ -1,0 +1,63 @@
+// Active: 1774548158103@@ismaelnata01_db_user@null@aula
+db("aula").collection("personagens").find({
+    nome: "Monkey D. Luffy",
+});
+
+db("aula").collection("personagens").find({
+    idade: 19,
+});
+
+db("aula").collection("personagens").find({
+    idade: {
+        $gt: 19, //se idade > 19 
+    },
+});
+
+db("aula").collection("personagens").find({
+    idade: {
+        $lt: 21,//se idade < 21
+    },
+});
+
+db("aula").collection("personagens").find({
+    idade: {
+        $gte: 19,//se idade >= 19
+    },
+});
+
+db("aula").collection("personagens").find({
+    idade: {
+        $lte: 19,//se idade =< 21 
+    },
+});
+
+db("aula").collection("personagens").find({
+    idade: 19,
+    nome:"Monkey D. Luffy",
+});
+
+db("aula").collection("personagens").find({
+    idade: {
+        $gt: 19,//mais de 19
+        $lt: 21,//menos de 21
+    }
+});
+
+db("aula").collection("personagens").find({
+    $or:[ 
+        {idade: {$lt: 20 } },//menos de 20
+        {idade: {$gt: 21 } } //mais de 21
+    ]
+});
+
+db("aula").collection("personagens").find({
+    idade: {
+        $ne: 19,
+    }
+});
+
+db("aula").collection("personagens").find({
+    nome: {
+        $regex: "Luffy"
+    }
+});

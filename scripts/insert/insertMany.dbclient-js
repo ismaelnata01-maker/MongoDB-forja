@@ -1,0 +1,13 @@
+// Active: 1774548158103@@ismaelnata01_db_user@null@aula
+db("aula").collection("personagens").insertMany([
+    {
+        nome: "BHig Mom",
+        fruta: "Soul",
+        idade: 68,
+    },
+    {
+        nome: "Kaido",
+        fruta: "Dragon",
+        idade: 59,
+    },
+]);

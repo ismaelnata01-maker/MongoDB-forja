@@ -1,0 +1,9 @@
+// Active: 1774548158103@@ismaelnata01_db_user@null@aula
+db("aula").collection("personagens").updateMany(
+    {},
+    {
+        $currentDate: {
+            updatedAt: true,
+        },
+    },
+);

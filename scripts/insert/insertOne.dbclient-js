@@ -4,3 +4,17 @@ db("aula").collection("personagens").insertOne({
     fruta: "Shadow",
     idade: 48,
 });
+
+db("aula").collection("origens").insertOne({
+    local: "New world",
+    ilha: "Ilha Hachinosu",
+});
+
+db("aula").collection("personagens").insertOne({
+    nome: "Marshall D. Teach",
+    frutas_ids: [
+        ObjectID('69cbfdb89d1e3d8475fbba31'),
+        ObjectID('69cbfdb89d1e3d8475fbba32'),
+    ],
+    origem_id: ObjectID('69cbfdaf9d1e3d8475fbba30'),
+});

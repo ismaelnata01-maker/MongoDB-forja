@@ -1,0 +1,14 @@
+// Active: 1774548158103@@ismaelnata01_db_user@null@aula
+db("aula").collection("frutas").aggregate([
+    {
+        $lookup: {
+            from: "personagens",
+            localField: "_id",
+            foreignField: "frutas_ids",
+            as: "personagens",
+        },
+    },
+    {
+        $unwind: "$personagens", //unwind: separa em objetos ao invés de ser uma lista.
+    },
+])

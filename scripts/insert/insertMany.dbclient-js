@@ -11,3 +11,14 @@ db("aula").collection("personagens").insertMany([
         idade: 59,
     },
 ]);
+
+db("aula").collection("frutas").insertMany([
+    {
+        nome: "Yami Yami no Mi",
+        tipo: "Logia",
+    },
+    {
+        nome: "Gura Gura no Mi",
+        tipo: "Paramecia",
+    },
+]);

@@ -1,0 +1,43 @@
+// Active: 1774548158103@@ismaelnata01_db_user@null@aula
+//agrupar as frutas pelo tipo
+//Inserir uma lista com os nomes das frutas de cada tipo
+//Inserir lista de personagens que comeram cada tipo de fruta
+//Colocar tudo em ordem alfabética
+db("aula").collection("frutas").aggregate([
+    {
+        $lookup:{
+            from: "personagens",
+            localField: "_id",
+            foreignField: "frutas_ids",
+            as: "personagens",
+        },
+    },
+    {
+        $unwind: "$personagens",
+    },
+    {
+        $group:{
+            _id: "$tipo",
+            frutas: {$addToSet: "$nome"},//addToSet:: faz o mesmo que o push mas sem repetir.
+            personagens: {$push: "$personagens"},
+        },
+    },
+    {
+        $set: {
+            frutas: { $sortArray: {input: "$frutas", sortBy: 1} },
+            personagens: 
+            {$sortArray: {
+            input: "$personagens",
+            sortBy: {
+                nome: 1,
+            },
+          },
+        },
+      },
+    },
+    {
+        $sort: {
+            _id: 1,
+        },
+    },
+]);

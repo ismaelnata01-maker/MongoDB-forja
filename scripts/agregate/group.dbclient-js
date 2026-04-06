@@ -19,7 +19,7 @@ db("aula").collection("personagens").aggregate([
                 $avg: "$Idade",
             },
             total: {$sum: 1},
-            personagens: {$push: "$$ROOT"},
+            personagens: {$push: "$$ROOT"},//push: insere um elemento numa lista e ROOT: é o elemento inteiro
         },
     },
 ]);
